@@ -76,6 +76,8 @@
       <DependentUpon>202008150324364_addContextItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\TransactionItem.cs" />
     <Compile Include="UserControlSupplier.xaml.cs">
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
     </Compile>
