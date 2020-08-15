@@ -13,5 +13,8 @@ namespace CRUDWPF.Model
     {
         [Key]
         public int Id { get; set; }
+
+
+        public ICollection<TransactionItem> TransactionItem { get; set; }
     }
 }
