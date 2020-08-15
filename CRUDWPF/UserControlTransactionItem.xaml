@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="CRUDWPF.UserControlTransactionItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRUDWPF"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="1024">
+    <Grid Background="White">
+        <DataGrid x:Name="dataTI" HorizontalAlignment="Center" Height="406" Margin="156,170,307,0" VerticalAlignment="Top" Width="561" RenderTransformOrigin="-2.645,-0.362" SelectionChanged="DataTI_SelectionChanged" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" HorizontalContentAlignment="Center" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="50" 
+                Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name" Width="200"
+                Binding="{Binding Item.Name}" />
+                <DataGridTextColumn Header="Quantity" Width="80"
+                Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Transaction No." Width="120"
+                Binding="{Binding Transaction.Id}" />
+                <DataGridTemplateColumn Header="Delete" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Height="20" Width="20" Background="Red" BorderBrush="{x:Null}" Click="BtnDelete_Click">
+                                <materialDesign:PackIcon Kind="Trash"  Height="15" Width="15" Margin="0"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+        <Label x:Name="title" Content="Transaction Item" HorizontalAlignment="Left" Margin="370,22,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="48"/>
+        
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="32" Margin="573,130,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="136" FontSize="16" Foreground="DarkGray" PreviewMouseLeftButtonDown="SearchBox_Click" TextChanged="SearchBox_TextChanged"/>
+        
+        <ComboBox x:Name="itemBox" HorizontalAlignment="Left" Margin="750,172,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Item.Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+    </Grid>
+</UserControl>

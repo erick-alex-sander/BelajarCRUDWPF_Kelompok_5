@@ -71,10 +71,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202008150324364_addContextItem.cs" />
-    <Compile Include="Migrations\202008150324364_addContextItem.designer.cs">
-      <DependentUpon>202008150324364_addContextItem.cs</DependentUpon>
+    <Compile Include="Migrations\202008151032329_addModelDatabases.cs" />
+    <Compile Include="Migrations\202008151032329_addModelDatabases.designer.cs">
+      <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\TransactionItem.cs" />
@@ -84,8 +85,8 @@
     <Compile Include="UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlItem.xaml.cs">
-      <DependentUpon>UserControlItem.xaml</DependentUpon>
+    <Compile Include="UserControlTransactionItem.xaml.cs">
+      <DependentUpon>UserControlTransactionItem.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -108,17 +109,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlItem.xaml">
+    <Page Include="UserControlTransactionItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202008130243057_addMyContext.cs" />
-    <Compile Include="Migrations\202008130243057_addMyContext.designer.cs">
-      <DependentUpon>202008130243057_addMyContext.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -133,11 +129,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008130243057_addMyContext.resx">
-      <DependentUpon>202008130243057_addMyContext.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008150324364_addContextItem.resx">
-      <DependentUpon>202008150324364_addContextItem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008151032329_addModelDatabases.resx">
+      <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
