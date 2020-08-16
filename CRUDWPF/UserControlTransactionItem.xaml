@@ -37,7 +37,7 @@
         <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="32" Margin="573,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontSize="16" Foreground="Black" TextChanged="SearchBox_TextChanged"/>
         <TextBlock x:Name="searchText" HorizontalAlignment="Left" Margin="577,136,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" FontSize="16" Foreground="LightSteelBlue" IsEnabled="False" IsHitTestVisible="False"/>
 
-        <ComboBox x:Name="itemBox" Margin="762,218,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsTextSearchEnabled="False" TextBoxBase.TextChanged="ItemBox_TextChanged" HorizontalAlignment="Left"  />
+        <ComboBox x:Name="itemBox" Margin="762,218,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" IsTextSearchEnabled="False" TextBoxBase.TextChanged="ItemBox_TextChanged" HorizontalAlignment="Left" SelectionChanged="ItemBox_SelectionChanged"  />
         <TextBlock x:Name="itemText" HorizontalAlignment="Left" Margin="765,223,0,0" TextWrapping="Wrap" Text="Select Item" VerticalAlignment="Top" Foreground="LightSteelBlue" FontSize="16"/>
 
         <TextBox x:Name="quantityBox" HorizontalAlignment="Left" Height="34" Margin="764,301,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="65" FontSize="16" TextAlignment="Right" PreviewTextInput="QuantityBox_PreviewTextInput" TextChanged="QuantityBox_TextChanged"/>
