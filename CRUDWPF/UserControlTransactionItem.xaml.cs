@@ -24,28 +24,50 @@ namespace CRUDWPF
     public partial class UserControlTransactionItem : UserControl
     {
         private MyContext _context = new MyContext();
+
         static Regex numOnly = new Regex("^[0-9]+$");
         private static bool IsTextAllowed(string text)
         {
             return numOnly.IsMatch(text);
         }
 
+        private List<TransactionItem> _GetAll ()
+        {
+            return _context.TransactionItems
+                .Include(a => a.Item)
+                .Include(b => b.Transaction)
+                .ToList();
+        }
+
+        private void Clear()
+        {
+            searchBox.Clear();
+            id.Text = "";
+            itemBox.SelectedIndex = -1;
+            itemBox.IsDropDownOpen = false;
+            quantityBox.Text = "1";
+            transactionBox.SelectedIndex = -1;
+            transactionText.Visibility = Visibility.Visible;
+        }
+
         public UserControlTransactionItem()
         {
             InitializeComponent();
 
-            var obj = _context.TransactionItems
-                .Include(a => a.Item)
-                .Include(b => b.Transaction)
-                .ToList();
+            var obj = _GetAll();
 
             dataTI.ItemsSource = obj;
 
-            var obj2 = _context.Items.ToList();
-            itemBox.ItemsSource = obj2;
+            var itemList = _context.Items.ToList();
+            itemBox.ItemsSource = itemList;
             itemBox.DisplayMemberPath = "Name";
             itemBox.SelectedValuePath = "Id";
-           
+
+            var transactionList = _context.Transactions.ToList();
+            transactionBox.ItemsSource = transactionList;
+            transactionBox.DisplayMemberPath = "Id";
+            transactionBox.SelectedValuePath = "Id";
+
         }
 
         private void DataTI_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,10 +76,19 @@ namespace CRUDWPF
             {
                 TransactionItem transactionItem = (TransactionItem)dataTI.SelectedItem;
                 id.Text = Convert.ToString(transactionItem.Id);
-                int Id = itemBox.Items.IndexOf("Sabun"); 
-                itemBox.SelectedIndex = Id;
+                itemBox.SelectedValue = transactionItem.Item.Id; 
                 quantityBox.Text = Convert.ToString(transactionItem.Quantity);
-            }
+                transactionBox.SelectedValue = transactionItem.Transaction.Id;
+
+                if (!string.IsNullOrWhiteSpace(id.Text))
+                {
+                    insertButton.Content = "Update";
+                }
+                else
+                {
+                    insertButton.Content = "Insert";
+                }
+           }
 
             catch (Exception)
             {
@@ -82,17 +113,13 @@ namespace CRUDWPF
                     _context.TransactionItems.Remove(obj);
                     _context.SaveChanges();
 
-                    dataTI.ItemsSource = _context.TransactionItems
-                        .Include(a => a.Item)
-                        .Include(b => b.Transaction)
-                        .ToList();
+                    dataTI.ItemsSource = _GetAll();
                     break;
                 case MessageBoxResult.No:
                     break;
 
             }
         }
-
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -113,29 +140,31 @@ namespace CRUDWPF
         private void ItemBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
-
-            if (!String.IsNullOrWhiteSpace(itemBox.Text) && !_context.Items.Any(i => i.Name == itemBox.Text))
+            if (String.IsNullOrWhiteSpace(itemBox.Text) /*&& !_context.Items.Any(i => i.Name == itemBox.Text)*/)
             {
                 itemBox.SelectedIndex = -1;
                 itemBox.IsDropDownOpen = true;
-                itemText.Visibility = Visibility.Hidden;
-                var filteredData = _context.TransactionItems.Where(i => i.Item.Name.Contains(itemBox.Text)).ToList();
+                itemText.Visibility = Visibility.Visible;
+                var filteredData = _context.Items.ToList();
                 itemBox.ItemsSource = filteredData;
-                itemBox.DisplayMemberPath = "Item.Name";
-                itemBox.SelectedValuePath = "Item.Id";
-                itemBox.IsEnabled = true;
+                itemBox.DisplayMemberPath = "Name";
+                itemBox.SelectedValuePath = "Id";
             }
             else if (!_context.Items.Any(i => i.Name == itemBox.Text))
             {
-                var obj = _context.TransactionItems
-                    .Include(a => a.Item)
-                    .Include(b => b.Transaction)
-                    .ToList();
-                itemText.Visibility = Visibility.Visible;
-                itemBox.ItemsSource = obj;
-                itemBox.DisplayMemberPath = "Item.Name";
-                itemBox.SelectedValuePath = "Item.Id";
+                var filteredData = _context.Items.Where(i => i.Name.Contains(itemBox.Text)).ToList(); 
+                itemText.Visibility = Visibility.Hidden;
+                itemBox.ItemsSource = filteredData;
+                itemBox.DisplayMemberPath = "Name";
+                itemBox.SelectedValuePath = "Id";
             }
+
+        }
+
+        private void ItemBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.itemBox.SelectedValue = itemBox.SelectedValue;
+            itemText.Visibility = Visibility.Hidden;
         }
 
         private void ButtonUp_Click(object sender, RoutedEventArgs e)
@@ -191,47 +220,75 @@ namespace CRUDWPF
             }
         }
 
+        private void TransactionBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.transactionBox.SelectedValue = transactionBox.SelectedValue;
+            transactionText.Visibility = Visibility.Hidden;
+
+        }
+
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
             int itemId = Convert.ToInt16(itemBox.SelectedValue);
             var itemObj = _context.Items.Find(itemId);
             int transactionId = Convert.ToInt16(transactionBox.SelectedValue);
-            var transactionObj = _context.Transactions.Find(1);
+            var transactionObj = _context.Transactions.Find(transactionId);
             int quantity = Convert.ToInt16(quantityBox.Text);
 
             if (String.IsNullOrWhiteSpace(id.Text))
             {
-                var insert = new TransactionItem(quantity, itemObj, transactionObj);
-                _context.TransactionItems.Add(insert);
-                _context.SaveChanges();
-                MessageBox.Show("Data has been inserted.");
-                dataTI.ItemsSource = _context.TransactionItems
-                .Include(a => a.Item)
-                .Include(b => b.Transaction)
-                .ToList();
+                try
+                {
+                    var insert = new TransactionItem(quantity, itemObj, transactionObj);
+                    _context.TransactionItems.Add(insert);
+                    _context.SaveChanges();
+                    MessageBox.Show("Data has been inserted.");
+                    dataTI.ItemsSource = _GetAll();
+                    Clear();
+                }
+
+                catch (Exception)
+                {
+                    MessageBox.Show("Error, cannot insert to database");
+                    Clear();
+                }
+                
             }
             else
             {
-                insertButton.Content = "Update";
-                int findId = Convert.ToInt32(id.Text);
-                itemId = Convert.ToInt16(itemBox.Items[1].ToString());
+                int findId = Convert.ToInt16(id.Text);
+                itemId = Convert.ToInt16(itemBox.SelectedValue);
                 itemObj = _context.Items.Find(itemId);
-                transactionId = Convert.ToInt16(transactionBox.SelectedValue);
-                transactionObj = _context.Transactions.Find(1);
+                transactionId = Convert.ToInt16(transactionBox.Text);
+                transactionObj = _context.Transactions.Find(transactionId);
 
                 var update = _context.TransactionItems.Find(findId);
                 update.Item = itemObj;
                 update.Quantity = Convert.ToInt32(quantityBox.Text);
                 update.Transaction = transactionObj;
 
-                _context.SaveChanges();
+                MessageBoxResult result = MessageBox.Show("This will be updated", "Warning", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        MessageBox.Show(update.Item.Name + " With the transaction no" +
+                            update.Transaction.Id + " Has been deleted");
+                        _context.SaveChanges();
+                        dataTI.ItemsSource = _GetAll();
+                        Clear();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+
+                }
+                
             }
 
         }
 
-        private void ItemBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            this.itemBox.SelectedValue = itemBox.SelectedValue;
+            Clear();
         }
     }
 }

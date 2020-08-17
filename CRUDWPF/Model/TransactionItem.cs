@@ -15,7 +15,9 @@ namespace CRUDWPF.Model
         public long Id { get; set; }
         public int Quantity { get; set; }
 
+        [Required]
         public Item Item { get; set; }
+        [Required]
         public Transaction Transaction { get; set; }
 
         public TransactionItem()

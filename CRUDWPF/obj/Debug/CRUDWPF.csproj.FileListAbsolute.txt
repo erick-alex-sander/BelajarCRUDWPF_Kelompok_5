@@ -122,3 +122,4 @@ C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\CRUDWPF.Mi
 C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlTransactionItem.g.cs
 C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlTransactionItem.baml
 C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\CRUDWPF.csprojAssemblyReference.cache
+C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\CRUDWPF.Migrations.revisedFK.resources

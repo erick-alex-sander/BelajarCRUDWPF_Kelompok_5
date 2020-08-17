@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202008151032329_addModelDatabases.designer.cs">
       <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008170144457_revisedFK.cs" />
+    <Compile Include="Migrations\202008170144457_revisedFK.designer.cs">
+      <DependentUpon>202008170144457_revisedFK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Transaction.cs" />
@@ -131,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202008151032329_addModelDatabases.resx">
       <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008170144457_revisedFK.resx">
+      <DependentUpon>202008170144457_revisedFK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
