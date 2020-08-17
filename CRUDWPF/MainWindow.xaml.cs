@@ -58,13 +58,12 @@ namespace CRUDWPF
                     GridMain.Children.Add(control);
                     break;
 
-                case "ItemSupps":
+                case "ItemCreate":
                     control = new UserControlSupplier();
                     GridMain.Children.Add(control);
                     break;
-
-                case "ItemItems":
-                    control = new UserControlItem();
+                case "TICreate":
+                    control = new UserControlTransactionItem();
                     GridMain.Children.Add(control);
                     break;
                 default:
