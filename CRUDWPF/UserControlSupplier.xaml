@@ -27,7 +27,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblID" Content="ID" HorizontalAlignment="Left" Margin="573,307,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="26" Margin="661,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="26" Margin="661,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" IsReadOnly="True"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="805,426,0,0" VerticalAlignment="Top" Width="113" Click="btnUpdate_Click" />
         <!-- <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="885,426,0,0" VerticalAlignment="Top" Width="105" Click="btnDelete_Click" /> -->
         <Label x:Name="lblStatusName" Content="" HorizontalAlignment="Left" Margin="661,382,0,0" VerticalAlignment="Top" Width="301" Background="#00000000" Foreground="#DDFF0000"/>

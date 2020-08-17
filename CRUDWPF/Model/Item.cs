@@ -22,8 +22,6 @@ namespace CRUDWPF.Model
         [ForeignKey("Supplier_Id")]
         public virtual Supplier Supplier { get; set; }
 
-        public ICollection<TransactionItem> TransactionItem { get; set; }
-
         public Item()
         {
 
