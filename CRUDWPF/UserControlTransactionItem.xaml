@@ -62,7 +62,8 @@
         <TextBlock x:Name="transactionBlock" Margin="764,340,0,0" TextWrapping="Wrap" Text="Transaction Id" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left"/>
         <TextBlock x:Name="idBlock" HorizontalAlignment="Left" Margin="170,139,0,0" TextWrapping="Wrap" Text="Transaction Item Id :" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="327,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
-        
+        <TextBlock x:Name="emptyData" HorizontalAlignment="Left" Margin="374,344,0,0" TextWrapping="Wrap" Text="There is No data displayed" VerticalAlignment="Top"/>
+
 
     </Grid>
 </UserControl>

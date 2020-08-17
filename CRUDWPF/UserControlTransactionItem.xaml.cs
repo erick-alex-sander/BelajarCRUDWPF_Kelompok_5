@@ -39,6 +39,20 @@ namespace CRUDWPF
                 .ToList();
         }
 
+        private void CallTable(List<TransactionItem> obj)
+        {
+            dataTI.ItemsSource = obj;
+
+            if (obj.Count() == 0)
+            {
+                emptyData.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                emptyData.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void Clear()
         {
             searchBox.Clear();
@@ -48,15 +62,15 @@ namespace CRUDWPF
             quantityBox.Text = "1";
             transactionBox.SelectedIndex = -1;
             transactionText.Visibility = Visibility.Visible;
+            dataTI.UnselectAllCells();
+            insertButton.Content = "Insert";
         }
 
         public UserControlTransactionItem()
         {
             InitializeComponent();
 
-            var obj = _GetAll();
-
-            dataTI.ItemsSource = obj;
+            CallTable(_GetAll());
 
             var itemList = _context.Items.ToList();
             itemBox.ItemsSource = itemList;
@@ -108,12 +122,12 @@ namespace CRUDWPF
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    MessageBox.Show(obj.Item.Name + " With the transaction no" +
+                    MessageBox.Show(obj.Item.Name + " With the transaction no " +
                         obj.Transaction.Id + " Has been deleted");
                     _context.TransactionItems.Remove(obj);
                     _context.SaveChanges();
-
-                    dataTI.ItemsSource = _GetAll();
+                    CallTable(_GetAll());
+                    Clear();
                     break;
                 case MessageBoxResult.No:
                     break;
@@ -143,7 +157,6 @@ namespace CRUDWPF
             if (String.IsNullOrWhiteSpace(itemBox.Text) /*&& !_context.Items.Any(i => i.Name == itemBox.Text)*/)
             {
                 itemBox.SelectedIndex = -1;
-                itemBox.IsDropDownOpen = true;
                 itemText.Visibility = Visibility.Visible;
                 var filteredData = _context.Items.ToList();
                 itemBox.ItemsSource = filteredData;
@@ -152,6 +165,7 @@ namespace CRUDWPF
             }
             else if (!_context.Items.Any(i => i.Name == itemBox.Text))
             {
+                itemBox.IsDropDownOpen = true;
                 var filteredData = _context.Items.Where(i => i.Name.Contains(itemBox.Text)).ToList(); 
                 itemText.Visibility = Visibility.Hidden;
                 itemBox.ItemsSource = filteredData;
@@ -243,7 +257,7 @@ namespace CRUDWPF
                     _context.TransactionItems.Add(insert);
                     _context.SaveChanges();
                     MessageBox.Show("Data has been inserted.");
-                    dataTI.ItemsSource = _GetAll();
+                    CallTable(_GetAll());
                     Clear();
                 }
 
@@ -271,15 +285,14 @@ namespace CRUDWPF
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        MessageBox.Show(update.Item.Name + " With the transaction no" +
-                            update.Transaction.Id + " Has been deleted");
+                        MessageBox.Show(update.Item.Name + " With the transaction no " +
+                            update.Transaction.Id + " Has been Updated");
                         _context.SaveChanges();
-                        dataTI.ItemsSource = _GetAll();
+                        CallTable(_GetAll());
                         Clear();
                         break;
                     case MessageBoxResult.No:
                         break;
-
                 }
                 
             }
@@ -290,5 +303,6 @@ namespace CRUDWPF
         {
             Clear();
         }
+
     }
 }
