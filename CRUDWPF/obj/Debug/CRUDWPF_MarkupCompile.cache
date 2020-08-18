@@ -10,6 +10,7 @@ none
 false
 DEBUG;TRACE
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
+<<<<<<< HEAD
 61773193330
 
 18-2096236743
@@ -17,4 +18,13 @@ E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCR
 MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;
 
 False
+=======
+4142002992
+
+18-1371495395
+181116662713
+MainWindow.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransactionItem.xaml;
+
+True
+>>>>>>> origin/Erick
 
