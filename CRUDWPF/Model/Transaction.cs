@@ -13,7 +13,17 @@ namespace CRUDWPF.Model
     {
         [Key]
         public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
 
+        public Transaction()
+        {
+
+        }
+
+        public Transaction(DateTime orderDate)
+        {
+            this.OrderDate = orderDate;
+        }
 
         public ICollection<TransactionItem> TransactionItem { get; set; }
     }

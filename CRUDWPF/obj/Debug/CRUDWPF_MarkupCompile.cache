@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\
+=======
+C:\1 File Kanawa\Bootcamp MII\GitHub\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\
+>>>>>>> Kanawa
 CRUDWPF
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
 41216996296
 
 18-233251525
 18264047499
 MainWindow.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlItem.xaml;
+=======
+C:\1 File Kanawa\Bootcamp MII\GitHub\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
+5-2127508032
+
+21-1473410526
+18301651384
+MainWindow.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlItem.xaml;UserControlTransaction.xaml;
+>>>>>>> Kanawa
 
 False
 
