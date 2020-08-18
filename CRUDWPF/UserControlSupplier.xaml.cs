@@ -33,21 +33,21 @@ namespace CRUDWPF
 
         private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                lblStatusName.Content = "*Name Cannot Empty !";
-                btnInsert.IsEnabled = false;
-            }
-            else if (!txtName.Text.All(char.IsLetterOrDigit))
-            {
-                lblStatusName.Content = "*Name Must Contain Only number and text !";
-                btnInsert.IsEnabled = false;
-            }
-            else
-            {
-                lblStatusName.Content = "";
-                btnInsert.IsEnabled = true;
-            }
+            //if (string.IsNullOrWhiteSpace(txtName.Text))
+            //{
+            //    lblStatusName.Content = "*Name Cannot Empty !";
+            //    btnInsert.IsEnabled = false;
+            //}
+            //else if (!txtName.Text.All(char.IsLetterOrDigit))
+            //{
+            //    lblStatusName.Content = "*Name Must Contain Only number and text !";
+            //    btnInsert.IsEnabled = false;
+            //}
+            //else
+            //{
+            //    lblStatusName.Content = "";
+            //    btnInsert.IsEnabled = true;
+            //}
         }
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
@@ -127,13 +127,9 @@ namespace CRUDWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var filteredData = context.Suppliers.Where(Q => Q.Id.ToString().Contains(txtSearch.Text) || Q.Name.Contains(txtSearch.Text)).ToList(); ;
+            var filteredData = context.Suppliers.Where(Q => Q.Id.ToString().Contains(txtSearch.Text) || Q.Name.Contains(txtSearch.Text)).ToList();
             dtList.ItemsSource = filteredData;
         }
 
-        private void txtName_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

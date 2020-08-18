@@ -7,13 +7,13 @@ namespace CRUDWPF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitTable : IMigrationMetadata
+    public sealed partial class addNewContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addNewContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008170706399_InitTable"; }
+            get { return "202008180257305_addNewContext"; }
         }
         
         string IMigrationMetadata.Source
