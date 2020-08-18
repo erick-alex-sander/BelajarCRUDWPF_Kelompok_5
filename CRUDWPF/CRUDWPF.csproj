@@ -71,23 +71,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202008151032329_addModelDatabases.cs" />
-    <Compile Include="Migrations\202008151032329_addModelDatabases.designer.cs">
-      <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008170144457_revisedFK.cs" />
-    <Compile Include="Migrations\202008170144457_revisedFK.designer.cs">
-      <DependentUpon>202008170144457_revisedFK.cs</DependentUpon>
+    <Compile Include="Migrations\202008180257305_addNewContext.cs" />
+    <Compile Include="Migrations\202008180257305_addNewContext.designer.cs">
+      <DependentUpon>202008180257305_addNewContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\TransactionItem.cs" />
+    <Compile Include="UserControlItem.xaml.cs">
+      <DependentUpon>UserControlItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlSupplier.xaml.cs">
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTransaction.xaml.cs">
+      <DependentUpon>UserControlTransaction.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlTransactionItem.xaml.cs">
       <DependentUpon>UserControlTransactionItem.xaml</DependentUpon>
@@ -105,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControlItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControlSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +118,10 @@
     <Page Include="UserControlHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTransaction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlTransactionItem.xaml">
       <SubType>Designer</SubType>
@@ -133,11 +143,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202008151032329_addModelDatabases.resx">
-      <DependentUpon>202008151032329_addModelDatabases.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008170144457_revisedFK.resx">
-      <DependentUpon>202008170144457_revisedFK.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008180257305_addNewContext.resx">
+      <DependentUpon>202008180257305_addNewContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,6 +159,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

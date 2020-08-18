@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
-4142002992
+61773193330
 
-18-1371495395
+18-2096236743
 181116662713
-MainWindow.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransactionItem.xaml;
+MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;
 
-True
+False
 
