@@ -30,42 +30,43 @@ namespace CRUDWPF
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            var data = dtList.SelectedItem as Transaction;
-            var trans = context.Transactions.Find(data.Id);
-            trans.OrderDate = data.OrderDate;
+            var trans = context.Transactions.Find(Convert.ToInt32(txtID.Text));
+            trans.OrderDate = txtDatePicker.SelectedDate.Value;
             context.SaveChanges();
             MessageBox.Show("1 row has been update");
-            
+            Refresh();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var data = dtList.SelectedItem as Transaction;
-            var trans = context.Transactions.Find(data.Id);
+            var trans = context.Transactions.Find(Convert.ToInt32(txtID.Text));
             context.Transactions.Remove(trans);
             context.SaveChanges();
             MessageBox.Show("1 row has been delete");
-            dtList.ItemsSource = context.Transactions.ToList();
-
-            txtDatePicker.SelectedDate = null;
-            txtID.Text = "";
-
-            dtList.SelectedItem = null;
+            Refresh();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            var filteredData = context.Transactions.Where(Q => Q.Id.ToString().Contains(txtSearch.Text) ); 
+            var filteredData = context.Transactions.Where(Q => Q.Id.ToString().Contains(txtSearch.Text)).ToList(); 
             dtList.ItemsSource = filteredData;
         }
 
         private void dtList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var data = dtList.SelectedItem as Transaction;
-            txtID.Text = Convert.ToString(data.Id);
-            txtDatePicker.SelectedDate = data.OrderDate;
-            btnUpdate.IsEnabled = true;
-            btnInsert.IsEnabled = false;
+            try
+            {
+                var data = dtList.SelectedItem as Transaction;
+                txtID.Text = Convert.ToString(data.Id);
+                txtDatePicker.SelectedDate = data.OrderDate;
+                btnUpdate.IsEnabled = true;
+                btnInsert.IsEnabled = false;
+            }
+            catch (Exception)
+            {
+                txtID.Text = null;
+            }
+            
         }
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
@@ -82,7 +83,7 @@ namespace CRUDWPF
                 context.SaveChanges();
                 MessageBox.Show("Data Berhasil Insert");
             }
-
+            Refresh();
             //txtID.Text = "";
             //txtDatePicker.SelectedDate = null;
             //dtList.SelectedItem = null;
@@ -112,9 +113,9 @@ namespace CRUDWPF
         {
             if (btnUpdate.IsEnabled == true)
             {
-                dtList.SelectedItem.Equals("");
-                txtDatePicker.SelectedDate = null;
+                dtList.SelectedItem = null;
                 txtID.Text = "";
+                txtDatePicker.SelectedDate = null;
                 txtSearch.Text = "";
                 dtList.ItemsSource = context.Transactions.ToList();
                 btnUpdate.IsEnabled = false;

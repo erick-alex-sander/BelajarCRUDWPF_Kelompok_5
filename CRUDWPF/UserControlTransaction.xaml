@@ -10,7 +10,8 @@
         <Label Content="Belajar crud WPF" HorizontalAlignment="Left" Margin="460,95,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="641,426,0,0" VerticalAlignment="Top" Width="113" Click="btnInsert_Click"/>
         <DatePicker x:Name="txtDatePicker" Height="25" HorizontalAlignment="Left" Margin="647,343,0,0" VerticalAlignment="Top" Width="124" />
-        <Label x:Name="lblDatePicker" Content="Date Picker" HorizontalAlignment="Left" Margin="573,351,0,0" VerticalAlignment="Top"/><DataGrid x:Name="dtList" HorizontalAlignment="Left" Height="299" Margin="170,191,0,0" VerticalAlignment="Top" Width="335" SelectionChanged="dtList_SelectionChanged" AutoGenerateColumns="False">
+        <Label x:Name="lblDatePicker" Content="Date Picker" HorizontalAlignment="Left" Margin="573,351,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dtList" HorizontalAlignment="Left" Height="299" Margin="170,191,0,0" VerticalAlignment="Top" Width="335" SelectionChanged="dtList_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Date Picker" Binding="{Binding OrderDate,StringFormat='dd/MM/yyyy'}" />
