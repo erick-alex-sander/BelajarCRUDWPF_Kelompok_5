@@ -160,3 +160,7 @@ E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCR
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlItem.g.cs
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlItem.baml
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\CRUDWPF.csprojAssemblyReference.cache
+E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlLogin.g.cs
+E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\UserControlLogin.baml
+E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\LoginWindow.g.cs
+E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\LoginWindow.baml

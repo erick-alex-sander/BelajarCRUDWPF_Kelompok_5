@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
                 <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" />
-                <DataGridTextColumn Header="Stock" Binding="{Binding Supplier.Name}" />
+                <DataGridTextColumn Header="Supplier Name" Binding="{Binding Supplier.Name}" />
                 <DataGridTemplateColumn Header="Action">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

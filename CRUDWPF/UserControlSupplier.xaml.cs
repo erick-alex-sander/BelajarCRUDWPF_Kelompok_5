@@ -59,7 +59,7 @@ namespace CRUDWPF
             }
             else
             {
-                var input = new Supplier(txtName.Text);
+                var input = new Supplier(txtName.Text,txtEmail.Text, txtPass.Text);
                 context.Suppliers.Add(input);
                 context.SaveChanges();
                 MessageBox.Show("Data Berhasil Insert");
@@ -125,6 +125,8 @@ namespace CRUDWPF
                 dtList.SelectedItem.Equals("");
                 txtID.Text = "";
                 txtName.Text = "";
+                txtEmail.Text = "";
+                txtPass.Text = "";
                 txtSearch.Text = "";
                 dtList.ItemsSource = context.Suppliers.ToList();
                 btnUpdate.IsEnabled = false;
@@ -134,6 +136,8 @@ namespace CRUDWPF
             {
                 txtID.Text = "";
                 txtName.Text = "";
+                txtEmail.Text = "";
+                txtPass.Text = "";
                 txtSearch.Text = "";
                 dtList.SelectedItem = null;
                 dtList.ItemsSource = context.Suppliers.ToList();

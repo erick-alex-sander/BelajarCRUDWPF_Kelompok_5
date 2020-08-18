@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202008180257305_addNewContext.cs" />
     <Compile Include="Migrations\202008180257305_addNewContext.designer.cs">
       <DependentUpon>202008180257305_addNewContext.cs</DependentUpon>
@@ -81,6 +84,9 @@
     <Compile Include="Model\TransactionItem.cs" />
     <Compile Include="UserControlItem.xaml.cs">
       <DependentUpon>UserControlItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLogin.xaml.cs">
+      <DependentUpon>UserControlLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlSupplier.xaml.cs">
       <DependentUpon>UserControlSupplier.xaml</DependentUpon>
@@ -94,6 +100,10 @@
     <Compile Include="UserControlTransactionItem.xaml.cs">
       <DependentUpon>UserControlTransactionItem.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +120,10 @@
     <Page Include="UserControlItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControlLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlSupplier.xaml">
       <SubType>Designer</SubType>

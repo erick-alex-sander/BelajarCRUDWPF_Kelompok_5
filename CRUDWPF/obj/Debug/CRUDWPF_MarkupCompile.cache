@@ -10,11 +10,15 @@ none
 false
 DEBUG;TRACE
 E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
+<<<<<<< Updated upstream
 61773193330
+=======
+8-658847031
+>>>>>>> Stashed changes
 
-18-2096236743
+20-1042443856
 181116662713
-MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;
+LoginWindow.xaml;MainWindow.xaml;UserControlItem.xaml;UserControlLogin.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;
 
 False
 
