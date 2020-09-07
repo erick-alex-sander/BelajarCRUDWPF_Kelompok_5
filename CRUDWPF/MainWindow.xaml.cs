@@ -23,15 +23,31 @@ namespace CRUDWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Login loginAccount = new Login();
+
+        public MainWindow(Login loginAccount)
         {
+            
             InitializeComponent();
             GridMain.Children.Add(new UserControlHome());
+            this.loginAccount.Email = loginAccount.Email;
+            if (loginAccount.IsForgot == true)
+            {
+                GridMain.Children.Clear();
+                UserProfile userProfile = new UserProfile(loginAccount.Email);
+                GridMain.Children.Add(userProfile);
+            }
+            else
+            {
+
+            }
         }        
 
         private void ButtonPopUpLogo_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            Close();
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -81,6 +97,13 @@ namespace CRUDWPF
                 default:
                     break;
             }
+        }
+
+        private void ButtonAccount_Click(object sender, RoutedEventArgs e)
+        {
+            GridMain.Children.Clear();
+            UserProfile userProfile = new UserProfile(loginAccount.Email);
+            GridMain.Children.Add(userProfile);
         }
     }
 }

@@ -4,27 +4,17 @@
 winexe
 C#
 .cs
-E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\
+C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\obj\Debug\
 CRUDWPF
 none
 false
 DEBUG;TRACE
-E:\Fahmi\MII\MIICC\#9 - WPF (Windows Platform Fondation) Desktop\tugas\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
-<<<<<<< HEAD
-61773193330
+C:\Users\ThinkPad\Desktop\BelajarCRUDWPF_Kelompok_5\CRUDWPF\App.xaml
+111040742719
 
-18-2096236743
-181116662713
-MainWindow.xaml;UserControlItem.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;
+251563634660
+24-1710250660
+ChangePassword.xaml;ForgotPassword.xaml;LoginWindow.xaml;MainWindow.xaml;Register.xaml;UserControlItem.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransaction.xaml;UserControlTransactionItem.xaml;UserProfile.xaml;
 
 False
-=======
-4142002992
-
-18-1371495395
-181116662713
-MainWindow.xaml;UserControlSupplier.xaml;UserControlHome.xaml;UserControlTransactionItem.xaml;
-
-True
->>>>>>> origin/Erick
 

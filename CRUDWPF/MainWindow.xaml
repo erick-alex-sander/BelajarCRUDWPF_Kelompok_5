@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUDWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        mc:Ignorable="d" Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None">
 
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
@@ -42,7 +42,7 @@
             <StackPanel VerticalAlignment="Center">
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
                     <StackPanel Width="150">
-                        <Button Content="Account"/>
+                        <Button x:Name="ButtonAccount" Content="Account" Click="ButtonAccount_Click"/>
                         <Button Content="Setting"/>
                         <Button Content="About"/>
                         <Separator/>

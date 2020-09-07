@@ -9,8 +9,8 @@
     <Grid Background="White">
         <DataGrid x:Name="dataTI" HorizontalAlignment="Center" Height="365" Margin="156,170,307,0" VerticalAlignment="Top" Width="561" RenderTransformOrigin="-2.645,-0.362" SelectionChanged="DataTI_SelectionChanged" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" HorizontalContentAlignment="Center" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Width="50" 
-                Binding="{Binding Id}" />
+                <DataGridTextColumn Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={local:RowToIndexConverter}}" />
+                
                 <DataGridTextColumn Header="Name" Width="200"
                 Binding="{Binding Item.Name}" />
                 <DataGridTextColumn Header="Quantity" Width="80"

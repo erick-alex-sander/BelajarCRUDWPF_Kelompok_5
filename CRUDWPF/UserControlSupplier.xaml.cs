@@ -65,7 +65,10 @@ namespace CRUDWPF
                 MessageBox.Show("Data Berhasil Insert");
             }
 
-            Refresh();
+            txtID.Text = "";
+            txtName.Text = "";
+            dtList.SelectedItem = null;
+            dtList.ItemsSource = context.Suppliers.ToList();
         }
 
         private void dtList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -93,7 +96,12 @@ namespace CRUDWPF
                 context.SaveChanges();
                 MessageBox.Show("Data Berhasil Update");
             }
-            Refresh();
+            dtList.SelectedItem.Equals("");
+            txtID.Text = "";
+            txtName.Text = "";
+            dtList.ItemsSource = context.Suppliers.ToList();
+            btnUpdate.IsEnabled = false;
+            btnInsert.IsEnabled = true;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -109,7 +117,12 @@ namespace CRUDWPF
                 context.SaveChanges();
                 MessageBox.Show("Data Berhasil Delete");
             }
-            Refresh();
+            dtList.SelectedItem.Equals("");
+            txtID.Text = "";
+            txtName.Text = "";
+            dtList.ItemsSource = context.Suppliers.ToList();
+            btnUpdate.IsEnabled = false;
+            btnInsert.IsEnabled = true;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -118,31 +131,5 @@ namespace CRUDWPF
             dtList.ItemsSource = filteredData;
         }
 
-        public void Refresh ()
-        {
-            if (btnUpdate.IsEnabled == true)
-            {
-                dtList.SelectedItem.Equals("");
-                txtID.Text = "";
-                txtName.Text = "";
-                txtSearch.Text = "";
-                dtList.ItemsSource = context.Suppliers.ToList();
-                btnUpdate.IsEnabled = false;
-                btnInsert.IsEnabled = true;
-            }
-            else
-            {
-                txtID.Text = "";
-                txtName.Text = "";
-                txtSearch.Text = "";
-                dtList.SelectedItem = null;
-                dtList.ItemsSource = context.Suppliers.ToList();
-            }
-        }
-
-        private void btnRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            Refresh();
-        }
     }
 }
